@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.sohlman.liferay</groupId>
+		<artifactId>custom-calendar</artifactId>
+		<version>6.2.0.13-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+	<artifactId>calendar-portlet</artifactId>
+	<version>6.2.0.13-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>Customized calendar-portlet Example Actual Portlet</name>
+	<dependencies>
+		<dependency>
+			<groupId>com.sohlman.liferay</groupId>
+			<artifactId>original-calendar-portlet</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<overlays>
+						<overlay>
+							<artifactId>original-calendar-portlet</artifactId>
+							<groupId>com.sohlman.liferay</groupId>
+						</overlay>
+					</overlays>
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>calendar-portlet</finalName>
+	</build>
+</project>
